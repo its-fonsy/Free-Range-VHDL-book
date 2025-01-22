@@ -8,7 +8,7 @@
 %
 %\documentclass[11pt,b5paper]{book} % you can set the paper size in style.sty
 %\documentclass[gray, 11pt,b5paper]{book} % generate whole document in B&W
-\documentclass[11pt,b5paper]{book} % generate whole document in color
+\documentclass[10pt,a5paper,openright]{book} % generate whole document in color
 \usepackage{styles/style}
 
 % Allow for the exercise solutions to not be listed in the ToC
@@ -27,16 +27,16 @@
 	\pagenumbering{alph} % for pageslts package to get page numbering correctly
 
 	% front cover
-	\thispagestyle{empty}
-	\begin{textblock*}{160mm}(-3mm,0mm)
-	%\textblockcolour{red}
-	\noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth]{images/cover.png}}  % full-page picture for 160x240 format
-	\end{textblock*}
-	\null\newpage % latex might neglect \newpage because the page is empty,
+	% \thispagestyle{empty}
+	% \begin{textblock*}{160mm}(-3mm,0mm)
+	% %\textblockcolour{red}
+	% \noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth]{images/cover.png}}  % full-page picture for 160x240 format
+	% \end{textblock*}
+	% \null\newpage % latex might neglect \newpage because the page is empty,
 
 	% blank page
-	\thispagestyle{empty}
-	\null\newpage
+	% \thispagestyle{empty}
+	% \null\newpage
 
 	% front matter %
 	\thispagestyle{empty}
@@ -48,6 +48,10 @@
 	{\sffamily\small Bryan Mealy, Fabrizio Tappero}\\
 	{\color{dark-gray}\rule[5pt]{170pt}{3pt}}
 	\end{textblock*}
+	\null\newpage
+
+	% blank page
+	\thispagestyle{empty}
 	\null\newpage
 
 	% license page %

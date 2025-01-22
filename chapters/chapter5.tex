@@ -523,47 +523,47 @@ Let us now review some of the important concepts that have been introduced in th
 \item The simplest concurrent statement is the concurrent signal assignment statement (e.g. ``{\footnotesize$F <= A;$}''). Its sequential equivalent is the sequential signal assignment statement and it looks identical.
 \end{my_list}
 
-\section{Exercises: Behavioral Modeling}
-\begin{my_num_list}
-\item For the following function, write VHDL behavioral models that implement these functions using both \texttt{case} statements and \texttt{if} statements (two separate models for each function).
-
-a) $F(A,B) =\overline{A}B +A +A\overline{B}$
-
-b) $F(A,B,C,D) =\overline{A}C\overline{D} +\overline{B}C +BC\overline{D}$
-
-c) $F(A,B,C,D) =(\overline{A}+B)\cdot(\overline{B}+C+\overline{D})\cdot(\overline{A}+D)$
-
-d) $F(A,B,C) = \displaystyle\prod(5,1,4,3) $
-
-e) $F(A,B,C,D) = \displaystyle\sum(1,2) $
-\item For the circuit below, write the VHDL behavioral model that implements it using both \texttt{case} statements and \texttt{if} statements (two separate models).
-
-\usetikzlibrary{er}
-\begin{tikzpicture}[minimum height=9mm]
-%\node[draw, not gate US] at (-2.5,0.05) (D) {D};
-\node[draw, and gate US] at (0,0.2) (C) {C};
-\node[draw, not gate US] at ([xshift=-1.95cm]C.input 2) (D) {D};
-\node[draw, or gate US] at (0,1.3) (B) {B};
-\node[draw, and gate US] at (0,2.4) (A) {A};
-\node[draw, or gate US] at (2.5,1.3) (E) {E};
-\draw (D.output) -- (C.input 2);
-\draw (A.output) -- +(0.7,0) |- (E.input 1);
-\draw (C.output) -- +(0.7,0) |- (E.input 2);
-\draw (B.output) -- (E.west);
-\draw (E.output) -- ([xshift=0.5cm]E.output) node [right] {E\_out} ;
-\draw (A.input 1) -- ([xshift=-3.cm]A.input 1) node [pos=1.1] {A\_1} ;
-\draw (A.input 2) -- ([xshift=-3.cm]A.input 2) node [pos=1.1] {A\_2} ;
-\draw (B.input 1) -- ([xshift=-3.1cm]B.input 1) node [pos=1.1] {B\_1} ;
-\draw (B.input 2) -- ([xshift=-3.1cm]B.input 2) node [pos=1.1] {B\_2} ;
-\draw (D.input) -- ([xshift=-1.9cm]D.output) node [left] {D\_1} ;
-\node [circle,fill, inner sep=0pt,minimum size=1.2mm]  at ([xshift=-6mm]B.input 2) (H) {}; %dot
-\draw (C.input 1) -| (H);
-%\draw [dashed] (-3.5,-0.5) rectangle (3.5,3.1) node [pos=0.93, auto=left] {my\_circuit} ;
-\end{tikzpicture}
-
-\item Model the previous circuit using concurrent, conditional, or selected signal assignment.
-\item Provide a VHDL model of an 8-input AND gate using a process statement.
-\item Provide a VHDL model of an 8-input OR gate using a process statement.
-\item Provide a VHDL model of an 8:1 MUX using a process statement. Include a model that uses \texttt{if} statements and \texttt{case} statements (two separate models).
-\item Provide a VHDL model of a 3:8 decoder using a process statement. Include a model that uses \texttt{if} statements and \texttt{case} statements (two separate models). Consider the outputs to be active low.
-\end{my_num_list}
+% \section{Exercises: Behavioral Modeling}
+% \begin{my_num_list}
+% \item For the following function, write VHDL behavioral models that implement these functions using both \texttt{case} statements and \texttt{if} statements (two separate models for each function).
+%
+% a) $F(A,B) =\overline{A}B +A +A\overline{B}$
+%
+% b) $F(A,B,C,D) =\overline{A}C\overline{D} +\overline{B}C +BC\overline{D}$
+%
+% c) $F(A,B,C,D) =(\overline{A}+B)\cdot(\overline{B}+C+\overline{D})\cdot(\overline{A}+D)$
+%
+% d) $F(A,B,C) = \displaystyle\prod(5,1,4,3) $
+%
+% e) $F(A,B,C,D) = \displaystyle\sum(1,2) $
+% \item For the circuit below, write the VHDL behavioral model that implements it using both \texttt{case} statements and \texttt{if} statements (two separate models).
+%
+% \usetikzlibrary{er}
+% \begin{tikzpicture}[minimum height=9mm]
+% %\node[draw, not gate US] at (-2.5,0.05) (D) {D};
+% \node[draw, and gate US] at (0,0.2) (C) {C};
+% \node[draw, not gate US] at ([xshift=-1.95cm]C.input 2) (D) {D};
+% \node[draw, or gate US] at (0,1.3) (B) {B};
+% \node[draw, and gate US] at (0,2.4) (A) {A};
+% \node[draw, or gate US] at (2.5,1.3) (E) {E};
+% \draw (D.output) -- (C.input 2);
+% \draw (A.output) -- +(0.7,0) |- (E.input 1);
+% \draw (C.output) -- +(0.7,0) |- (E.input 2);
+% \draw (B.output) -- (E.west);
+% \draw (E.output) -- ([xshift=0.5cm]E.output) node [right] {E\_out} ;
+% \draw (A.input 1) -- ([xshift=-3.cm]A.input 1) node [pos=1.1] {A\_1} ;
+% \draw (A.input 2) -- ([xshift=-3.cm]A.input 2) node [pos=1.1] {A\_2} ;
+% \draw (B.input 1) -- ([xshift=-3.1cm]B.input 1) node [pos=1.1] {B\_1} ;
+% \draw (B.input 2) -- ([xshift=-3.1cm]B.input 2) node [pos=1.1] {B\_2} ;
+% \draw (D.input) -- ([xshift=-1.9cm]D.output) node [left] {D\_1} ;
+% \node [circle,fill, inner sep=0pt,minimum size=1.2mm]  at ([xshift=-6mm]B.input 2) (H) {}; %dot
+% \draw (C.input 1) -| (H);
+% %\draw [dashed] (-3.5,-0.5) rectangle (3.5,3.1) node [pos=0.93, auto=left] {my\_circuit} ;
+% \end{tikzpicture}
+%
+% \item Model the previous circuit using concurrent, conditional, or selected signal assignment.
+% \item Provide a VHDL model of an 8-input AND gate using a process statement.
+% \item Provide a VHDL model of an 8-input OR gate using a process statement.
+% \item Provide a VHDL model of an 8:1 MUX using a process statement. Include a model that uses \texttt{if} statements and \texttt{case} statements (two separate models).
+% \item Provide a VHDL model of a 3:8 decoder using a process statement. Include a model that uses \texttt{if} statements and \texttt{case} statements (two separate models). Consider the outputs to be active low.
+% \end{my_num_list}

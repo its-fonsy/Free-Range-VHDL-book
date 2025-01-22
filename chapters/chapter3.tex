@@ -243,113 +243,113 @@ As a final note, let us to remind that the type \texttt{std\_logic} only exists 
 \item The architecture describes what your circuit actually does and what its behavior is. Several possible implementations (models) of the same behavior are possible in VHDL. These are the \textbf{data-flow} model, the \textbf{behavioral} model, the \textbf{structural} model as well as any combination of them, generally called \textbf{hybrid} model.
 \end{my_list}
 
-\section{Exercises}
-\begin{my_num_list}
-\item What is referred to by the word bundle?
-\item What is a common method of representing bundles in black-box diagrams?
-\item Why is it considered a good approach to always draw a black-box diagram when using VHDL to model digital circuits?
-\item Write VHDL entity declarations that describe the following black-box diagrams:
-
-\noindent
-\begin{minipage}{0.5\linewidth}
-	\vspace{5pt}
-	a)\\
-	\begin{tikzpicture}[x=1mm,y=1mm,line width=0.8pt,scale=0.8,framed]
-		%\draw[help lines] (0,0) grid (50,50);
-		% BOX
-		\draw (20,5) rectangle (37,25) node[midway]{sys1};
-		% INPUTS
-		\small
-		\node (hide) at (0,30) {}; % just to expand background
-		\node (a) at (20,-2.5) {}; % this is the reference point
-		\draw [latex-] ($(a)+(0,25)$) -- ++(-10,0) node[left]{a\_in1};
-		\draw [latex-] ($(a)+(0,20)$) -- ++(-10,0) node[left]{b\_in2};
-		\draw [latex-] ($(a)+(0,15)$) -- ++(-10,0) node[left]{clk};
-		\draw [latex-] ($(a)+(0,10)$) -- ++(-10,0) node[left]{ctrl\_int};
-		% OUTPUTS
-		\draw [-latex] ($(a)+(17,20)$) -- ++(10,0) node[right]{out\_b};
-	\end{tikzpicture}
-\end{minipage}
-\begin{minipage}{0.49\linewidth}
-	\vspace{5pt}
-	b)\\
-	\begin{tikzpicture}[x=1mm,y=1mm,line width=0.8pt,scale=0.8,framed]
-		%\draw[help lines] (0,0) grid (50,50);
-		% BOX
-		\draw (20,0) rectangle (37,25) node[midway]{sys2};
-		% INPUTS
-		\small
-		\node (hide) at (0,30) {}; % just to expand background
-		\node (a) at (20,-2.5) {}; % this is the reference point
-		\draw [latex-] ($(a)+(0,24)$) -- ++(-10,0) node[left]{input\_w};
-		\draw [latex-] ($(a)+(0,18)$) -- ++(-10,0) node[left]{a\_data} node[pos=0.4,above]{8} node[pos=0.7]{/};
-		\draw [latex-] ($(a)+(0,11)$) -- ++(-10,0) node[left]{b\_data} node[pos=0.4,above]{8} node[pos=0.7]{/};
-		\draw [latex-] ($(a)+(0, 5)$) -- ++(-10,0) node[left]{clk};
-		% OUTPUTS
-		\draw [-latex] ($(a)+(17,19)$) -- ++(10,0) node[right]{dat\_4} node[pos=0.6,above]{8} node[pos=0.4]{/};
-		\draw [-latex] ($(a)+(17,10)$) -- ++(10,0) node[right]{dat\_5} node[pos=0.6,above]{3} node[pos=0.4]{/};
-	\end{tikzpicture}
-\end{minipage}
-
-\item Provide black-box diagrams that are defined by the following VHDL entity declarations:
-
-\noindent
-\begin{minipage}{1\linewidth}
-a)
-\begin{lstlisting}[]
-
-entity ckt_c is
-port (
-    bun_a, bun_b, bun_c  : in    std_logic_vector(7 downto 0);
-    lda, ldb, ldc        : in    std_logic;
-    reg_a, reg_b, reg_c  : out   std_logic_vector(7 downto 0));
-end ckt_c;
-\end{lstlisting}
-\end{minipage}
-
-\noindent
-\begin{minipage}{1\linewidth}
-b)
-\begin{lstlisting}[]
-
-entity ckt_e is
-port (
-    RAM_CS, RAM_WE, RAM_OE  : in std_logic;
-    SEL_OP1, SEL_OP2        : in std_logic_vector(3 downto 0);
-    RAM_DATA_IN             : in std_logic_vector(7 downto 0);
-    RAM_ADDR_IN             : in std_logic_vector(9 downto 0);
-    RAM_DATA_OUT            : out std_logic_vector(7 downto 0));
-end ckt_e;
-\end{lstlisting}
-\end{minipage}
-
-\item The following two entity declarations contain two of the most common syntax errors made in VHDL. What are they?
-
-\noindent
-\begin{minipage}{1\linewidth}
-a)
-\begin{lstlisting}[framexrightmargin=-180pt]
-
-entity ckt_a is
-port (
-    J,K : in  std_logic;
-    CLK : in  std_logic
-    Q   : out std_logic;)
-end ckt_a;
-\end{lstlisting}
-\end{minipage}
-
-\noindent
-\begin{minipage}{1\linewidth}
-b)
-\begin{lstlisting}[framexrightmargin=-80pt, mathescape=true]
-
-entity ckt_b is
-port (
-mr_fluffy   : in  std_logic_vector(15 downto 0);
-mux_ctrl    : in  std_logic_vector(3 downto 0);
-byte_out    : out std_logic_vector(3 downto 0);
-end ckt_b;
-\end{lstlisting}
-\end{minipage}
-\end{my_num_list}
+% \section{Exercises}
+% \begin{my_num_list}
+% \item What is referred to by the word bundle?
+% \item What is a common method of representing bundles in black-box diagrams?
+% \item Why is it considered a good approach to always draw a black-box diagram when using VHDL to model digital circuits?
+% \item Write VHDL entity declarations that describe the following black-box diagrams:
+%
+% \noindent
+% \begin{minipage}{0.5\linewidth}
+% 	\vspace{5pt}
+% 	a)\\
+% 	\begin{tikzpicture}[x=1mm,y=1mm,line width=0.8pt,scale=0.8,framed]
+% 		%\draw[help lines] (0,0) grid (50,50);
+% 		% BOX
+% 		\draw (20,5) rectangle (37,25) node[midway]{sys1};
+% 		% INPUTS
+% 		\small
+% 		\node (hide) at (0,30) {}; % just to expand background
+% 		\node (a) at (20,-2.5) {}; % this is the reference point
+% 		\draw [latex-] ($(a)+(0,25)$) -- ++(-10,0) node[left]{a\_in1};
+% 		\draw [latex-] ($(a)+(0,20)$) -- ++(-10,0) node[left]{b\_in2};
+% 		\draw [latex-] ($(a)+(0,15)$) -- ++(-10,0) node[left]{clk};
+% 		\draw [latex-] ($(a)+(0,10)$) -- ++(-10,0) node[left]{ctrl\_int};
+% 		% OUTPUTS
+% 		\draw [-latex] ($(a)+(17,20)$) -- ++(10,0) node[right]{out\_b};
+% 	\end{tikzpicture}
+% \end{minipage}
+% \begin{minipage}{0.49\linewidth}
+% 	\vspace{5pt}
+% 	b)\\
+% 	\begin{tikzpicture}[x=1mm,y=1mm,line width=0.8pt,scale=0.8,framed]
+% 		%\draw[help lines] (0,0) grid (50,50);
+% 		% BOX
+% 		\draw (20,0) rectangle (37,25) node[midway]{sys2};
+% 		% INPUTS
+% 		\small
+% 		\node (hide) at (0,30) {}; % just to expand background
+% 		\node (a) at (20,-2.5) {}; % this is the reference point
+% 		\draw [latex-] ($(a)+(0,24)$) -- ++(-10,0) node[left]{input\_w};
+% 		\draw [latex-] ($(a)+(0,18)$) -- ++(-10,0) node[left]{a\_data} node[pos=0.4,above]{8} node[pos=0.7]{/};
+% 		\draw [latex-] ($(a)+(0,11)$) -- ++(-10,0) node[left]{b\_data} node[pos=0.4,above]{8} node[pos=0.7]{/};
+% 		\draw [latex-] ($(a)+(0, 5)$) -- ++(-10,0) node[left]{clk};
+% 		% OUTPUTS
+% 		\draw [-latex] ($(a)+(17,19)$) -- ++(10,0) node[right]{dat\_4} node[pos=0.6,above]{8} node[pos=0.4]{/};
+% 		\draw [-latex] ($(a)+(17,10)$) -- ++(10,0) node[right]{dat\_5} node[pos=0.6,above]{3} node[pos=0.4]{/};
+% 	\end{tikzpicture}
+% \end{minipage}
+%
+% \item Provide black-box diagrams that are defined by the following VHDL entity declarations:
+%
+% \noindent
+% \begin{minipage}{1\linewidth}
+% a)
+% \begin{lstlisting}[]
+%
+% entity ckt_c is
+% port (
+%     bun_a, bun_b, bun_c  : in    std_logic_vector(7 downto 0);
+%     lda, ldb, ldc        : in    std_logic;
+%     reg_a, reg_b, reg_c  : out   std_logic_vector(7 downto 0));
+% end ckt_c;
+% \end{lstlisting}
+% \end{minipage}
+%
+% \noindent
+% \begin{minipage}{1\linewidth}
+% b)
+% \begin{lstlisting}[]
+%
+% entity ckt_e is
+% port (
+%     RAM_CS, RAM_WE, RAM_OE  : in std_logic;
+%     SEL_OP1, SEL_OP2        : in std_logic_vector(3 downto 0);
+%     RAM_DATA_IN             : in std_logic_vector(7 downto 0);
+%     RAM_ADDR_IN             : in std_logic_vector(9 downto 0);
+%     RAM_DATA_OUT            : out std_logic_vector(7 downto 0));
+% end ckt_e;
+% \end{lstlisting}
+% \end{minipage}
+%
+% \item The following two entity declarations contain two of the most common syntax errors made in VHDL. What are they?
+%
+% \noindent
+% \begin{minipage}{1\linewidth}
+% a)
+% \begin{lstlisting}[framexrightmargin=-180pt]
+%
+% entity ckt_a is
+% port (
+%     J,K : in  std_logic;
+%     CLK : in  std_logic
+%     Q   : out std_logic;)
+% end ckt_a;
+% \end{lstlisting}
+% \end{minipage}
+%
+% \noindent
+% \begin{minipage}{1\linewidth}
+% b)
+% \begin{lstlisting}[framexrightmargin=-80pt, mathescape=true]
+%
+% entity ckt_b is
+% port (
+% mr_fluffy   : in  std_logic_vector(15 downto 0);
+% mux_ctrl    : in  std_logic_vector(3 downto 0);
+% byte_out    : out std_logic_vector(3 downto 0);
+% end ckt_b;
+% \end{lstlisting}
+% \end{minipage}
+% \end{my_num_list}
