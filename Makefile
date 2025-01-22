@@ -1,16 +1,18 @@
 MASTER := master.tex
-PDF := free_range_vhdl.pdf
+PDF := master.pdf
 
-.PHONY: all clean distclean
-
-all: $(PDF)
+.PHONY: all clean distclean booklet
 
 $(PDF): $(MASTER) chapters/*.tex 
 	latexmk -pdf $<
-	mv master.pdf $@
+
+all: $(PDF) booklet
+
+booklet: $(PDF) booklet.tex
+	latexmk -pdf booklet.tex
 
 clean:
-	latexmk -C
+	latexmk -c
 
 distclean: clean
 	rm -f *.pdf
